@@ -221,3 +221,63 @@ man tmux
     rm -r lika_project
 9 : whoami
 ```
+## TD3
+### Exercice 1
+```
+1 : ls -l /
+2 : ls -l / | grep bin
+3 : ls -l / | awk '$9=="bin" {print $5}'
+4 : stat -c '%y' /bin
+5 : stat -c '%y' /bin | awk '{split($0,a," "); split(a[1],b,"-"); year=b[1]; month=b[2]; day=b[3]; printf("%s-%s-%s\n",year,substr("JanFebMarAprMayJunJulAugSepOctNovDec",(month-1)*3+1,3),day)}'
+```
+### Exercice 2
+```
+1 : curl https://en.wikipedia.org/wiki/List_of_cyberattacks > cyberattacks.txt
+2 : grep 'meta' cyberattacks.txt
+3 : grep -o -E 'meta\w+' cyberattacks.txt
+4 : grep -o -E 'meta\w+' cyberattacks.txt | cut -c 5-
+5 : cat cyberattacks.txt | grep -A1 'Introduction' | grep -v 'Introduction\|--'
+6 : grep -o -P '<title>\K.*(?= - Wikipedia</title>)' cyberattacks.txt
+    grep -o -P '<h[23]>\K.*(?=</h[23]>)' cyberattacks.txt | grep -v '^Contents$'
+```
+## TD4
+### Exercice 1
+```
+4 : #!/bin/bash
+    REMOTE_SERVER="remote.server.com"
+    PRIVATE_KEY_PATH="~/.ssh/my_private_key.pem"
+    REMOTE_USERNAME="my_username"
+    ssh -i $PRIVATE_KEY_PATH $REMOTE_USERNAME@$REMOTE_SERVER
+5 : ./connect.sh
+6 : mv key.pem .key.pem
+    nano connect.sh
+    ssh -i ~/.key.pem ec2-user@<your-instance-ip>
+    ./connect.sh
+```
+### Exercice 2 
+```
+1 : touch test_to_remote_instance.txt
+2 : ssh username@remote_instance_ip_address
+    touch test_from_remote_instance.txt
+    exit
+3 : scp test_to_remote_instance.txt username@remote_instance_ip_address:~
+    scp username@remote_instance_ip_address:~/test_from_remote_instance.txt .
+4 : if [ -z "$1" ]; then
+        echo "Please provide the path of the file to send as an argument."
+        exit 1
+    fi
+
+    if [ ! -f "$1" ]; then
+      echo "The file $1 does not exist."
+      exit 1
+    fi
+    scp "$1" username@remote_instance_ip_address:~
+
+    if [ -z "$1" ]; then
+        echo "Please provide the path of the file to receive as an argument."
+        exit 1
+    fi
+    scp username@remote_instance_ip_address:"$1" .
+5 : ./scp_to_remote_instance.sh /path/to/my_file.txt
+    ./scp_from_remote_instance.sh ~/remote_file.txt
+```
