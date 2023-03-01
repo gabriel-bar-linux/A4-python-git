@@ -1,7 +1,7 @@
 # A4-python-git
 
-# TD1
-## Exercice1
+## TD1
+### Exercice 1
 ```
 cd /
 ls
@@ -17,7 +17,7 @@ cd test
 pwd
 ```
 
-## Exercice2
+### Exercice 2
 ```
 cd home
 ls
@@ -35,7 +35,7 @@ cp -R notes notes_2023
 cd ..
 ```
 
-## Exercice3
+### Exercice 3
 ```
 cd linux_ex_1
 rm -r notes
@@ -49,7 +49,7 @@ bash scipt_1.sh
 ls
 ```
 
-## Exercice4
+### Exercice 4
 ```
 touch ~/linux_ex_1/credentials
 echo "fake personal information" > ~/linux_ex_1/credentials
