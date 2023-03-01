@@ -1,1 +1,126 @@
 # A4-python-git
+
+# TD1
+## Exercice1
+```
+cd /
+ls
+pwd
+mkdir test
+cd /home
+cd ~
+cd ..
+cd ..
+cd ~
+mkdir test
+cd test
+pwd
+```
+
+## Exercice2
+```
+cd home
+ls
+mkdir linux_ex_1
+cd linux_ex_1
+touch gabriel_bar.txt
+mkdir notes
+mv gabriel_bar.txt notes
+mv gabriel_bar.txt gabriel_bar_2023.txt
+ls
+cd ..
+ls
+cd notes
+cp -R notes notes_2023
+cd ..
+```
+
+## Exercice3
+```
+cd linux_ex_1
+rm -r notes
+touch script_1.sh
+echo "Script running please waait ..."
+echo "Done."
+
+nano scipt_1.sh
+cat script_1.sh
+bash scipt_1.sh
+ls
+```
+
+## Exercice4
+```
+touch ~/linux_ex_1/credentials
+echo "fake personal information" > ~/linux_ex_1/credentials
+ls -l ~/linux_ex_1/credentials
+
+chmod 555 ~/linux_ex_1/credentials
+ls -l ~/linux_ex_1/credentials
+cat ~/linux_ex_1/credentials
+
+chmod 775 ~/linux_ex_1/credentials
+ls -l ~/linux_ex_1/credentials
+cat ~/linux_ex_1/credentials
+
+chmod 711 ~/linux_ex_1/credentials
+ls -l ~/linux_ex_1/credentials
+
+chmod 717 ~/linux_ex_1/credentials
+ls -l ~/linux_ex_1/credentials
+
+chmod 777 ~/linux_ex_1/credentials
+ls -l ~/linux_ex_1/credentials
+```
+
+```
+cd /
+
+sudo touch .private_file
+echo "private information" > .private_file
+ls -al
+
+echo "modified information" >> .private_file
+cat .private_file
+
+sudo echo "root-modified information" >> .private_file
+cat .private_file
+
+sudo chmod 777 .private_file
+echo "final modification" >> .private_file
+cat .private_file
+```
+
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install cmatrix
+cmatrix
+"Control" + "C"
+sudo apt install tmux
+tmux
+echo "Hello session 0"
+cmatrix 
+"Control" + "B" + "D"
+tmux new-session
+echo "Hello session 1"
+"Control" + "B" + "D"
+tmux list-sessions
+tmux attach -t 0
+"Control" + "B" + "D"
+tmux attach -t 1
+"Control" + "B" + "D"
+tmux list-sessions
+tmux kill-session -a
+tmux list-sessions
+```
+
+```
+cmatrix --help
+cmatrix --colors white
+cmatrix --delay=500
+cmatrix --delay=500 --colors blue
+man cmatrix
+tmux --help
+man tmux
+```
