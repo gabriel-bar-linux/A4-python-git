@@ -124,3 +124,100 @@ man cmatrix
 tmux --help
 man tmux
 ```
+## TD2
+### Exercice 1
+```
+1 : sudo apt-get update && sudo apt-get upgrade
+2 : uname -a
+    top
+    nproc
+    lscpu | grep cache
+    df -h
+    mount | column -t
+    lsusb
+    hostname
+```
+### Exercice 2
+```
+1 : x="piri pimpin"
+2 : echo $x
+3 : x+=" piri pimpon"
+4 : mkdir my_programs
+    cd my_programs
+5 : echo "pilou pilou" > pilou
+6 : bash pilou
+7 : chmod +x pilou
+8 : ./pilou
+9 : echo $PATH
+10 : export PATH=$PATH:$(pwd)
+11 : echo 'export PATH=$PATH:$(pwd)' >> ~/.bashrc
+12 : cd ~
+13 : pilou
+14 : export PATH=$PATH:/path/to/my_programs
+15 : pilou
+```
+### Exercice 3
+```
+1 : #!/bin/bash
+    echo $(date) - Hello >> hellos.txt
+2 : chmod +x say_hello.sh
+3 : crontab -e
+    * * * * * /path/to/say_hello.sh
+```
+### Exercice 4
+```
+1 : mkdir hash_checksum
+    cd hash_checksum
+2 : touch .sensible_addresses
+    touch .sensible_passwords
+3 : ls    
+4 : #!/bin/bash
+    echo "Have a good day"
+5 : ./gentle_script.sh
+6 : sha256sum gentle_script.sh > log_sha
+7 : echo 'rm -rf .sensible*' >> gentle_script.sh
+8 : sha256sum gentle_script.sh > log_sha
+9 : ./gentle_script.sh
+10 : ls
+11 : cat log_sha
+```
+### Exercice 5
+```
+1 : sudo apt-get install qpdf
+2 : mkdir compress
+    cd compress
+3 : echo "Hello" > hello
+4 : zlib-flate -1 < hello > hello.deflate
+    ls -l hello.deflate | awk '{print $5}' > log_compress
+5 : yes "Hello" | head -n 1000 > hello_multiple
+6 : zlib-flate -1 < hello_multiple > hello_multiple.deflate
+    ls -l hello_multiple.deflate | awk '{print $5}' >> log_compress
+7 : for i in {1..100}; do echo "Hello $i"; done > hello_multiple_i
+8 : zlib-flate -1 < hello_multiple_i > hello_multiple_i.deflate
+    ls -l hello_multiple_i.deflate | awk '{print $5}' >> log_compress
+9 : cat log_compress
+10 & 11 ?
+```
+### Exercice 6
+```
+1 : sudo useradd client_1 -m -p passwd-client_1
+    sudo useradd contributor_1 -m -p passwd-contributor_1
+    sudo useradd contributor_2 -m -p passwd-contributor_2
+2 : sudo groupadd clients
+    sudo groupadd contributors
+3 : sudo usermod -aG clients client_1
+    sudo usermod -aG contributors contributor_1
+    sudo usermod -aG contributors contributor_2
+4 : getent passwd
+    getent group
+5 : sudo mkdir lika_project
+    sudo chgrp clients lika_project
+    sudo chmod 550 lika_project
+    sudo chmod g+rw lika_project
+6 : ls -l
+7 : su client_1
+    rm -r lika_project
+8 : su contributor_1
+    rm -r lika_project
+9 : whoami
+```
