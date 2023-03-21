@@ -282,3 +282,49 @@ man tmux
 5 : ./scp_to_remote_instance.sh /path/to/my_file.txt
     ./scp_from_remote_instance.sh ~/remote_file.txt
 ```
+
+## TD7
+### Exercice 1
+fait sur github
+
+### Exercice 2
+```
+git checkout -b gabriel-bar
+echo "Allez l'om" > gabriel-bar.txt
+git add gabriel-bar.txt
+git commit -m "Add gabriel-bar.txt"
+git push origin gabriel-bar
+```
+
+### Exercice 3
+```
+git checkout main #master ne marchait pas
+git merge gabriel-bar
+git push origin main
+```
+
+### Exercice 4
+```
+git checkout gabriel-bar
+nano README.md
+git add README.md
+git commit -m "Edit lines 2-6 in README.md"
+git checkout main
+git pull origin main
+git merge gabriel-bar
+nano README.md
+git add README.md
+git commit -m "Resolve merge conflicts in README.md"
+git push origin main
+```
+
+### Exercice 5
+```
+git checkout main
+git pull origin main
+cat README.md
+git checkout gabriel-bar
+git merge main
+git add README.md
+git commit -m "Merge changes from main to gabriel-bar"
+```
