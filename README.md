@@ -346,3 +346,5 @@ git commit -m "ce que l'on a fait"
 git rebase -i HEAD~8
 git push origin gabriel-bar
 ```
+
+# Sur le TD commun, j'ai tout fait mais je n'ai pas réussi à régler tous mes "conflicts"
