@@ -328,3 +328,21 @@ git merge main
 git add README.md
 git commit -m "Merge changes from main to gabriel-bar"
 ```
+
+### Exercice 6
+```
+git checkout main
+git branch -d gabriel-bar
+git push origin --delete gabriel-bar
+```
+
+### Exercice 7
+```
+git pull origin main
+git checkout -b gabriel-bar
+nano README.md
+git add README.md
+git commit -m "ce que l'on a fait"
+git rebase -i HEAD~8
+git push origin gabriel-bar
+```
